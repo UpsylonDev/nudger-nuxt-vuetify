@@ -4,12 +4,12 @@ import { defineNuxtConfig } from 'nuxt/config'
 export default defineNuxtConfig({
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
-  
+
   // Suppress Vue Router warnings for Chrome DevTools requests
   vite: {
     define: {
-      __VUE_PROD_DEVTOOLS__: false
-    }
+      __VUE_PROD_DEVTOOLS__: false,
+    },
   },
 
   modules: [
@@ -21,26 +21,27 @@ export default defineNuxtConfig({
     '@nuxt/test-utils',
     '@nuxtjs/i18n',
     '@pinia/nuxt',
-    'vuetify-nuxt-module'
+    'vuetify-nuxt-module',
   ],
   i18n: {
     defaultLocale: 'fr-FR',
     locales: [
       { code: 'fr-FR', name: 'Français' },
-      { code: 'en-US', name: 'English' }
+      { code: 'en-US', name: 'English' },
     ],
     strategy: 'prefix_except_default',
     bundle: {
-      optimizeTranslationDirective: false
-    }
+      optimizeTranslationDirective: false,
+    },
   },
-  vuetify: { // https://vuetifyjs.com/en/
+  vuetify: {
+    // https://vuetifyjs.com/en/
     // https://nuxt.vuetifyjs.com/guide/
     moduleOptions: {
       /* module specific options */
     },
     vuetifyOptions: {
       /* vuetify options */
-    }
-  }
+    },
+  },
 })

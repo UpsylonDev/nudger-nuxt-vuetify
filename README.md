@@ -5,8 +5,6 @@
 [![Release](https://github.com/open4good/nudger-front/actions/workflows/release.yml/badge.svg)](https://github.com/open4good/nudger-front/actions/workflows/release.yml)
 [![CodeQL](https://github.com/open4good/nudger-front/actions/workflows/codeql.yml/badge.svg)](https://github.com/open4good/nudger-front/actions/workflows/codeql.yml)
 
-
-
 ## Nudger UI in action
 
 Experience Nudger frontend online:
@@ -14,8 +12,6 @@ Experience Nudger frontend online:
 - [https://static.nudger.fr/storybook](https://static.nudger.fr/storybook) – Storybook component showcase.
 - [https://static.nudger.fr](https://static.nudger.fr) – statically generated version hosted on GitHub Pages.
 - [https://demo.nudger.fr](https://demo.nudger.fr) – server-rendered demo.
-
-
 
 **Welcome** to the Nudger front-end project. This guide is a comprehensive overview of the Nudger UI application structure, coding conventions, and tooling.
 
@@ -27,23 +23,25 @@ Use this document as the bible for:
 - understanding project architecture
 - adhering to our coding standards
 
-
 ## Getting Started: Installation & Setup
 
 To get the project up and running locally, follow these steps:
 
 1. **Prerequisites**:  
-   Ensure you have Node.js `22+` and `pnpm` installed. Install it globally via:  
+   Ensure you have Node.js `22+` and `pnpm` installed. Install it globally via:
+
    ```bash
    npm install -g pnpm
    ```
 
-2. **Clone the Repository**:  
+2. **Clone the Repository**:
+
    ```bash
    git clone https://github.com/open4good/nudger-front.git
    ```
 
-3. **Install Dependencies**:  
+3. **Install Dependencies**:
+
    ```bash
    pnpm install
    ```
@@ -54,18 +52,22 @@ To get the project up and running locally, follow these steps:
    - Other optional variables: `NUXT_PUBLIC_SITE_URL`, etc.
      These are declared in `nuxt.config.ts` under `runtimeConfig`.
 
-5. **Run the Dev Server**:  
+5. **Run the Dev Server**:
+
    ```bash
    pnpm run dev
-   ```  
+   ```
+
    Access it at [http://localhost:3000](http://localhost:3000)
 
-6. **Production Build**:  
+6. **Production Build**:
+
    ```bash
    pnpm build && pnpm preview
    ```
 
-7. **Static Generation (optional)**:  
+7. **Static Generation (optional)**:
+
    ```bash
    pnpm generate
    ```
@@ -103,6 +105,7 @@ src/
 - `tests/` or `*.spec.ts` files live next to components or logic.
 
 ### Key Config Files:
+
 - `nuxt.config.ts` – Nuxt modules and runtime configuration
 - `tsconfig.json` – TypeScript compiler options and path aliases
 - `eslint.config.mjs` and `.prettierrc` – linting and formatting rules
@@ -129,22 +132,25 @@ src/
 - Prefer server-side data fetching for SEO-critical content
 
 ## Tailwind CSS
+
 ## Vuetify
+
 ###Vuetify is a no design skills required Open Source UI Library with beautifully handcrafted Vue Components.
+
 - (Doc) [https://vuetifyjs.com/en/]
 
-
 ## Pinia (State Management)
+
 - (Doc) [https://pinia.vuejs.org/core-concepts/]
 
 ```ts
 // src/stores/cart.ts
-import { defineStore } from 'pinia';
+import { defineStore } from 'pinia'
 
 interface Product {
-  id: number;
-  name: string;
-  price: number;
+  id: number
+  name: string
+  price: number
 }
 
 export const useCartStore = defineStore('cart', {
@@ -153,17 +159,18 @@ export const useCartStore = defineStore('cart', {
   }),
   getters: {
     itemCount: (state) => state.items.length,
-    totalPrice: (state) => state.items.reduce((sum, item) => sum + item.price, 0),
+    totalPrice: (state) =>
+      state.items.reduce((sum, item) => sum + item.price, 0),
   },
   actions: {
     addItem(product: Product) {
-      this.items.push(product);
+      this.items.push(product)
     },
     removeItem(productId: number) {
-      this.items = this.items.filter((item) => item.id !== productId);
+      this.items = this.items.filter((item) => item.id !== productId)
     },
   },
-});
+})
 ```
 
 ## Using the Store
@@ -213,16 +220,16 @@ const cart = useCartStore();
 ### Example Story
 
 ```ts
-import Button from '@/components/Button.vue';
+import Button from '@/components/Button.vue'
 
 export default {
   title: 'Components/Button',
   component: Button,
-};
+}
 
 export const Primary = {
   args: { label: 'Primary Button' },
-};
+}
 ```
 
 ## Linting & Formatting
@@ -242,6 +249,7 @@ export const Primary = {
 ## Deployment & CI/CD
 
 - Build with:
+
   ```bash
   pnpm build
   ```

@@ -1,11 +1,10 @@
 {
-    "welcome": "Bienvenue",
-    "lang": {
-      "fr": "Français",
-      "en": "Anglais"
-    },
-    "siteIdentity": {
-      "siteName": "Nudger"
-    }
+  "welcome": "Bienvenue",
+  "lang": {
+    "fr": "Français",
+    "en": "Anglais"
+  },
+  "siteIdentity": {
+    "siteName": "Nudger"
   }
-  
+}
